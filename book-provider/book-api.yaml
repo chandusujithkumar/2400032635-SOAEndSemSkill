@@ -1,0 +1,33 @@
+
+openapi: 3.0.3
+
+info:
+  title: Book API
+  version: 1.0.0
+
+paths:
+  /api/books/{id}:
+    get:
+      summary: Get book by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Book found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  title:
+                    type: string
+                  author:
+                    type: string
+        '404':
+          description: Book not found
